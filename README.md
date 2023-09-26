@@ -2,6 +2,10 @@
 
 Writes source code into a PDF document.
 
+<p align="center">
+    <img src=".readme/screenshot.png">
+</p>
+
 ## Requirements
 
 - `pdflatex`
