@@ -1,3 +1,3 @@
 # Code to PDF
 
-Writes source code in a PDF file.
+Writes source code into a PDF document.
