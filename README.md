@@ -27,3 +27,7 @@ code-to-pdf -s one-dark source.py document.pdf
 ```
 
 **Note:** See [pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
+
+## Thanks to
+
+- [Pygments](https://pygments.org/), which this project highly relies upon
