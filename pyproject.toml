@@ -5,10 +5,19 @@ build-backend = "hatchling.build"
 [project]
 name = "code_to_pdf"
 version = "1.0.0"
+description = "Writes source code into a PDF document."
 license = "MIT"
+authors = [
+    { name = "Victor Bonnelle", email = "victor.bonnelle@proton.me" },
+]
 dependencies = [
     "pygments",
 ]
+
+[project.urls]
+Homepage = "https://github.com/victorbnl/code-to-pdf"
+Tracker = "https://github.com/victorbnl/code-to-pdf/issues"
+Source = "https://github.com/victorbnl/code-to-pdf"
 
 [project.scripts]
 code-to-pdf = "code_to_pdf.cli:main"
