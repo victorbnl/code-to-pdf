@@ -2,33 +2,33 @@
 Command-line interface.
 """
 
-import argparse
+import click
 
 from code_to_pdf.build import build
 
 
-def main() -> None:
+@click.command()
+@click.argument('source_file')
+@click.argument('output_file')
+@click.option('--style', '-s', help="Pygments style (see https://pygments.org/styles/)")
+def main(
+    source_file: str,
+    output_file: str,
+    *,
+    style: str = 'default',
+) -> None:
     """
-    CLI main function.
+    Writes source code into a PDF document.
     """
 
-    argparser = argparse.ArgumentParser(
-        description="Writes source code into a PDF document."
+    with open(source_file, 'r', encoding='utf-8') as file_:
+        source_code = file_.read()
+
+    pdf_content = build(
+        source_code,
+        source_file,
+        style=style,
     )
-    argparser.add_argument('source_file')
-    argparser.add_argument('output_file')
-    argparser.add_argument(
-        '-s',
-        '--style',
-        default='default',
-        help="Pygments style (see https://pygments.org/styles/)",
-    )
-    args = argparser.parse_args()
 
-    with open(args.source_file, 'r', encoding='utf-8') as source_file:
-        source_code = source_file.read()
-
-    pdf_content = build(source_code, args.source_file, style=args.style)
-
-    with open(args.output_file, 'wb') as output_file:
-        output_file.write(pdf_content)
+    with open(output_file, 'wb') as file_:
+        file_.write(pdf_content)
