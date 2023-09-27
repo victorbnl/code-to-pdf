@@ -12,7 +12,7 @@ authors = [
     { name = "Victor Bonnelle", email = "victor.bonnelle@proton.me" },
 ]
 dependencies = [
-    "pygments",
+    "pygments>=2.2.0",
 ]
 
 [project.urls]
