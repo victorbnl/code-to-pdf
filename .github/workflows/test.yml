@@ -40,3 +40,7 @@ jobs:
         with:
           fail: true
           files: 'output.pdf'
+
+      - name: Check if the file is a valid PDF
+        shell: bash
+        run: '[[ "$(cat output.pdf)" = "%PDF"* ]]'
