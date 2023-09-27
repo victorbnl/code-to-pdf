@@ -13,7 +13,7 @@ class LatexBuilder:
     Builds LaTeX from source code.
     """
 
-    def __init__(self, style: str = 'default'):
+    def __init__(self, *, style: str = 'default'):
 
         self.style = style
 

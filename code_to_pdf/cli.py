@@ -28,7 +28,7 @@ def main() -> None:
     with open(args.source_file, 'r', encoding='utf-8') as source_file:
         source_code = source_file.read()
 
-    pdf_content = build(source_code, args.source_file, args.style)
+    pdf_content = build(source_code, args.source_file, style=args.style)
 
     with open(args.output_file, 'wb') as output_file:
         output_file.write(pdf_content)

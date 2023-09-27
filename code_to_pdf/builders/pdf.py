@@ -12,7 +12,7 @@ class PdfBuilder:
     Builds PDF content from LaTeX code.
     """
 
-    def __init__(self, pdflatex: str = 'pdflatex'):
+    def __init__(self, *, pdflatex: str = 'pdflatex'):
 
         self.pdflatex = pdflatex
 
