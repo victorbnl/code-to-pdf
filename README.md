@@ -26,7 +26,7 @@ pip install git+https://github.com/victorbnl/code-to-pdf
 code-to-pdf -s one-dark source.py document.pdf
 ```
 
-**Note:** See [pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
+**Note:** See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
 
 ## Thanks to
 
