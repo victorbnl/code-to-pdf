@@ -5,6 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "code_to_pdf"
 version = "1.0.0"
+license = "MIT"
 dependencies = [
     "pygments",
 ]
