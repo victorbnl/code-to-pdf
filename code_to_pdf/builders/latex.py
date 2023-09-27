@@ -56,7 +56,9 @@ class LatexBuilder:
 
         preamble = self.__build_preamble()
 
-        formatter = LatexFormatter(full=True, style=self.style, preamble=preamble)
+        formatter = LatexFormatter(
+            full=True, style=self.style, preamble=preamble
+        )
         latex_code = highlight(source_code, lexer, formatter)
 
         return latex_code
