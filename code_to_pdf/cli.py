@@ -10,12 +10,12 @@ from code_to_pdf.build import build
 @click.command()
 @click.argument('source_file')
 @click.argument('output_file')
-@click.option('--style', '-s', help="Pygments style (see https://pygments.org/styles/)")
+@click.option('--style', '-s', default='default', help="Pygments style (see https://pygments.org/styles/)")
 def main(
     source_file: str,
     output_file: str,
     *,
-    style: str = 'default',
+    style: str,
 ) -> None:
     """
     Writes source code into a PDF document.
