@@ -1,0 +1,42 @@
+name: Test
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Setup TeX Live
+        id: setup_texlive
+        uses: teatimeguest/setup-texlive-action@v2.6.2
+        with:
+          packages: scheme-basic fancyvrb xcolor
+
+      - name: Create test source file
+        shell: bash
+        run: echo '' > source.txt
+
+      - name: Install code-to-pdf
+        shell: bash
+        run: pip install .
+
+      - name: Build PDF
+        shell: bash
+        run: code-to-pdf --style github-dark source.txt output.pdf
+
+      - name: Check if the PDF file exists
+        uses: andstor/file-existence-action@v2.0.0
+        with:
+          fail: true
+          files: 'output.pdf'
