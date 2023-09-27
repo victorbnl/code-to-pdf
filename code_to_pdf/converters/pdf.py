@@ -20,12 +20,16 @@ def latex_to_pdf(latex_code: str) -> bytes:
         ) as tex_file:
             tex_file.write(latex_code)
 
-        subprocess.run(
-            ['pdflatex', 'output.tex'],
-            cwd=tmpdir,
-            check=True,
-            stdout=subprocess.DEVNULL
-        )
+        try:
+            subprocess.run(
+                ['pdflatex', '-halt-on-error', 'output.tex'],
+                cwd=tmpdir,
+                check=True,
+                capture_output=True
+            )
+        except subprocess.CalledProcessError as error:
+            print(error.stdout.decode('utf-8'))
+            raise error
 
         with open(path.join(tmpdir, 'output.pdf'), 'rb') as pdf_file:
             pdf_content = pdf_file.read()
