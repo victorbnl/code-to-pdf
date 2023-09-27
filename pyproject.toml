@@ -7,6 +7,7 @@ name = "code_to_pdf"
 version = "1.0.0"
 description = "Writes source code into a PDF document."
 license = "MIT"
+requires-python = ">=3.10"
 authors = [
     { name = "Victor Bonnelle", email = "victor.bonnelle@proton.me" },
 ]
