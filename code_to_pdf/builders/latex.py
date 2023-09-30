@@ -2,6 +2,8 @@
 Builds LaTeX from source code.
 """
 
+from os import path
+
 from pygments import highlight
 from pygments.lexers import guess_lexer, guess_lexer_for_filename
 from pygments.formatters import LatexFormatter
@@ -16,49 +18,56 @@ class LatexBuilder:
     def __init__(self, *, style: str = 'default'):
 
         self.style = style
+        self.formatter = LatexFormatter(style=style)
 
-    def __build_preamble(self):
+    def __build_template(self):
 
-        top_margin = 0.3
-        bottom_margin = 0.3
-        right_margin = 0.5
-        left_margin = 0.5
+        with open(
+            path.join(path.dirname(__file__), 'templates', 'latex.tex'),
+            'r',
+            encoding='utf-8'
+        ) as template_file:
+            template = template_file.read()
 
         style = get_style_by_name(self.style)
         background = style.background_color[1:]
 
-        preamble = f"""
-            \\usepackage[
-                top={top_margin}in,
-                bottom={bottom_margin}in,
-                right={right_margin}in,
-                left={left_margin}in
-            ]{{geometry}}
+        style_defs = self.formatter.get_style_defs()
 
-            \\usepackage[dvipsnames]{{xcolor}}
-            \\definecolor{{background}}{{HTML}}{{{background}}}
-            \\pagecolor{{background}}
+        template_data = {
+            "FONT_SIZE": "10pt",
+            "TOP_MARGIN": "0.4in",
+            "BOTTOM_MARGIN": "0.4in",
+            "RIGHT_MARGIN": "0.5in",
+            "LEFT_MARGIN": "0.5in",
+            "BACKGROUND_COLOR": background,
+            "STYLE_DEFS": style_defs,
+        }
 
-            \\pagenumbering{{gobble}}
-        """
+        for key, value in template_data.items():
+            template = template.replace(key, value)
 
-        return preamble
+        return template
 
-    def build(self, source_code: str, filename: str | None = None):
-        """
-        Returns LaTeX code built from `source_code`.
-        """
+    def __build_latex_code(self, source_code: str, filename: str | None = None):
 
         if filename is None:
             lexer = guess_lexer(source_code)
         else:
             lexer = guess_lexer_for_filename(filename, source_code)
 
-        preamble = self.__build_preamble()
-
-        formatter = LatexFormatter(
-            full=True, style=self.style, preamble=preamble
-        )
-        latex_code = highlight(source_code, lexer, formatter)
+        latex_code = highlight(source_code, lexer, self.formatter)
 
         return latex_code
+
+    def build(self, source_code: str, filename: str | None = None):
+        """
+        Returns LaTeX document code built from `source_code`.
+        """
+
+        template = self.__build_template()
+        latex_code = self.__build_latex_code(source_code, filename)
+
+        document = template.replace("CONTENT", latex_code)
+
+        return document
