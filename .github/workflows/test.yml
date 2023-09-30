@@ -25,7 +25,7 @@ jobs:
 
       - name: Create test source file
         shell: bash
-        run: echo '' > source.txt
+        run: echo "Hello world" > source.txt
 
       - name: Install code-to-pdf
         shell: bash
@@ -44,3 +44,9 @@ jobs:
       - name: Check if the file is a valid PDF
         shell: bash
         run: '[[ "$(cat output.pdf)" = "%PDF"* ]]'
+
+      - name: Upload the PDF file as an artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: output
+          path: 'output.pdf'
