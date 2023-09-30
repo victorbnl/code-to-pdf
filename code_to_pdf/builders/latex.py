@@ -15,9 +15,10 @@ class LatexBuilder:
     Builds LaTeX from source code.
     """
 
-    def __init__(self, *, style: str = 'default'):
+    def __init__(self, *, style: str = 'default', font_size: str = '10pt'):
 
         self.style = style
+        self.font_size = font_size
         self.formatter = LatexFormatter(style=style)
 
     def __build_template(self):
@@ -35,7 +36,7 @@ class LatexBuilder:
         style_defs = self.formatter.get_style_defs()
 
         template_data = {
-            "FONT_SIZE": "10pt",
+            "FONT_SIZE": self.font_size,
             "TOP_MARGIN": "0.4in",
             "BOTTOM_MARGIN": "0.4in",
             "RIGHT_MARGIN": "0.5in",
