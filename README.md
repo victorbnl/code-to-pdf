@@ -34,7 +34,7 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
   -s STYLE, --style STYLE
-                        Pygments style (see https://pygments.org/styles/)
+                        pygments style (see https://pygments.org/styles/)
 ```
 
 **Note:** See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
