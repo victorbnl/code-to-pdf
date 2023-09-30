@@ -23,7 +23,7 @@ def main(
     style: str,
 ) -> None:
     """
-    Writes source code into a PDF document.
+    Generate PDF documents from source code with syntax highlighting.
     """
 
     with open(source_file, 'r', encoding='utf-8') as file_:

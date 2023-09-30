@@ -1,6 +1,6 @@
 # Code to PDF
 
-Writes source code into a PDF document.
+> Generate PDF documents from source code with syntax highlighting.
 
 <p align="center">
     <img src=".readme/screenshot.png">
@@ -25,7 +25,7 @@ pip install git+https://github.com/victorbnl/code-to-pdf
 ```
 usage: code-to-pdf [-h] [-s STYLE] source_file output_file
 
-Writes source code into a PDF document.
+Generate PDF documents from source code with syntax highlighting.
 
 positional arguments:
   source_file
