@@ -1,8 +1,9 @@
 """
-Wrapper function around builders.
+Build PDF documents from source code.
 """
 
-from code_to_pdf.builders import LatexBuilder, PdfBuilder
+from code_to_pdf.build.latex import LatexBuilder
+from code_to_pdf.build.pdf import PdfBuilder
 
 
 def build(
