@@ -9,6 +9,8 @@ from pygments.lexers import guess_lexer, guess_lexer_for_filename
 from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
 
+from code_to_pdf.utils.colour import is_dark_colour
+
 
 class LatexBuilder:
     """
@@ -31,7 +33,12 @@ class LatexBuilder:
             template = template_file.read()
 
         style = get_style_by_name(self.style)
-        background = style.background_color[1:]
+        background_color = style.background_color
+
+        if is_dark_colour(background_color):
+            foreground_color = '#ff0000'
+        else:
+            foreground_color = '#00ff00'
 
         style_defs = self.formatter.get_style_defs()
 
@@ -41,7 +48,8 @@ class LatexBuilder:
             "BOTTOM_MARGIN": "0.4in",
             "RIGHT_MARGIN": "0.5in",
             "LEFT_MARGIN": "0.5in",
-            "BACKGROUND_COLOR": background,
+            "BACKGROUND_COLOR": background_color[1:],
+            "FOREGROUND_COLOR": foreground_color[1:],
             "STYLE_DEFS": style_defs,
         }
 

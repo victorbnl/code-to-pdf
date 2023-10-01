@@ -8,8 +8,14 @@
 ]{geometry}
 
 \usepackage[dvipsnames]{xcolor}
+
 \definecolor{background}{HTML}{BACKGROUND_COLOR}
 \pagecolor{background}
+
+\definecolor{foreground}{HTML}{FOREGROUND_COLOR}
+\makeatletter
+\AtBeginDocument{\color{foreground}\global\let\default@color\current@color}
+\makeatother
 
 \usepackage{fancyvrb}
 \usepackage[utf8]{inputenc}
