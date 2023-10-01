@@ -17,6 +17,9 @@ class PdfBuilder:
         self.pdflatex = pdflatex
 
     def build(self, latex_code: str):
+        """
+        Returns PDF content from LaTeX code.
+        """
 
         with tempfile.TemporaryDirectory() as tmpdir:
 
