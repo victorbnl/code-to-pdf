@@ -1,6 +1,4 @@
-"""
-Command-line interface.
-"""
+"""Command-line interface for code-to-pdf."""
 
 import click
 
@@ -28,9 +26,7 @@ def main(
     style: str,
     font_size: str,
 ) -> None:
-    """
-    Generate PDF documents from source code with syntax highlighting.
-    """
+    """Generate PDF documents from source code with syntax highlighting."""
 
     with open(source_file, 'r', encoding='utf-8') as file_:
         source_code = file_.read()

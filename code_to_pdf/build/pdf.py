@@ -1,6 +1,4 @@
-"""
-Builds PDF content from LaTeX code.
-"""
+"""Convert LaTeX code to a PDF file."""
 
 from os import path
 import tempfile
@@ -8,21 +6,15 @@ import subprocess
 
 
 class PdfBuilder:
-    """
-    Builds PDF content from LaTeX code.
-    """
+    """Builder for converting LaTeX code to PDF file content."""
 
     def __init__(self, *, pdflatex: str = 'pdflatex'):
-
         self.pdflatex = pdflatex
 
     def build(self, latex_code: str):
-        """
-        Returns PDF content from LaTeX code.
-        """
+        """Return PDF file content from LaTeX code."""
 
         with tempfile.TemporaryDirectory() as tmpdir:
-
             with open(
                 path.join(tmpdir, 'output.tex'), 'w', encoding='utf-8'
             ) as tex_file:

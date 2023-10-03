@@ -1,6 +1,4 @@
-"""
-Build PDF documents from source code.
-"""
+"""Build a document with source code."""
 
 from code_to_pdf.build.latex import LatexBuilder
 from code_to_pdf.build.pdf import PdfBuilder
@@ -13,9 +11,7 @@ def build(
     style: str = 'default',
     font_size: str = '10pt',
 ) -> bytes:
-    """
-    Returns the bytes of a PDF file which contains `source_code`.
-    """
+    """Return PDF file content from source code."""
 
     latex_builder = LatexBuilder(style=style, font_size=font_size)
     latex_code = latex_builder.build(source_code, filename)

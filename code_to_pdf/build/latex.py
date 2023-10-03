@@ -1,6 +1,4 @@
-"""
-Builds LaTeX from source code.
-"""
+"""Convert source code to LaTeX."""
 
 from os import path
 
@@ -13,18 +11,14 @@ from code_to_pdf.utils.colour import is_dark_colour
 
 
 class LatexBuilder:
-    """
-    Builds LaTeX from source code.
-    """
+    """Builder for converting source code to LaTeX."""
 
     def __init__(self, *, style: str = 'default', font_size: str = '10pt'):
-
         self.style = style
         self.font_size = font_size
         self.formatter = LatexFormatter(style=style)
 
     def __build_template(self):
-
         with open(
             path.join(path.dirname(__file__), 'templates', 'latex.tex'),
             'r',
@@ -59,7 +53,6 @@ class LatexBuilder:
         return template
 
     def __build_latex_code(self, source_code: str, filename: str | None = None):
-
         if filename is None:
             lexer = guess_lexer(source_code)
         else:
@@ -70,9 +63,7 @@ class LatexBuilder:
         return latex_code
 
     def build(self, source_code: str, filename: str | None = None):
-        """
-        Returns LaTeX document code built from `source_code`.
-        """
+        """Return LaTeX from source code."""
 
         template = self.__build_template()
         latex_code = self.__build_latex_code(source_code, filename)
