@@ -13,9 +13,25 @@ from code_to_pdf.utils.colour import is_dark_colour
 class LatexBuilder:
     """Builder for converting source code to LaTeX."""
 
-    def __init__(self, *, style: str = 'default', font_size: str = '10pt'):
+    def __init__(
+        self,
+        *,
+        style: str = 'default',
+        font_size: str = '10pt',
+        top_margin: str = '0.4in',
+        bottom_margin: str = '0.4in',
+        left_margin: str = '0.5in',
+        right_margin: str = '0.5in',
+    ):
         self.style = style
+
         self.font_size = font_size
+
+        self.top_margin = top_margin
+        self.bottom_margin = bottom_margin
+        self.left_margin = left_margin
+        self.right_margin = right_margin
+
         self.formatter = LatexFormatter(style=style)
 
     def __build_template(self):
@@ -38,10 +54,10 @@ class LatexBuilder:
 
         template_data = {
             "FONT_SIZE": self.font_size,
-            "TOP_MARGIN": "0.4in",
-            "BOTTOM_MARGIN": "0.4in",
-            "RIGHT_MARGIN": "0.5in",
-            "LEFT_MARGIN": "0.5in",
+            "TOP_MARGIN": self.top_margin,
+            "BOTTOM_MARGIN": self.bottom_margin,
+            "RIGHT_MARGIN": self.right_margin,
+            "LEFT_MARGIN": self.left_margin,
             "BACKGROUND_COLOR": background_color[1:],
             "FOREGROUND_COLOR": foreground_color[1:],
             "STYLE_DEFS": style_defs,
