@@ -1,2 +1,2 @@
-click>=8.1.0
+docstring-parser>=0.15
 pygments>=2.16.0

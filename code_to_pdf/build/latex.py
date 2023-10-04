@@ -7,32 +7,16 @@ from pygments.lexers import guess_lexer, guess_lexer_for_filename
 from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
 
+from code_to_pdf.options import StyleOptions
 from code_to_pdf.utils.colour import is_dark_colour
 
 
 class LatexBuilder:
     """Builder for converting source code to LaTeX."""
 
-    def __init__(
-        self,
-        *,
-        style: str = 'default',
-        font_size: str = '10pt',
-        top_margin: str = '0.4in',
-        bottom_margin: str = '0.4in',
-        left_margin: str = '0.5in',
-        right_margin: str = '0.5in',
-    ):
-        self.style = style
-
-        self.font_size = font_size
-
-        self.top_margin = top_margin
-        self.bottom_margin = bottom_margin
-        self.left_margin = left_margin
-        self.right_margin = right_margin
-
-        self.formatter = LatexFormatter(style=style)
+    def __init__(self, style_options: StyleOptions):
+        self.style_options = style_options
+        self.formatter = LatexFormatter(style=style_options.style)
 
     def __build_template(self):
         with open(
@@ -42,7 +26,7 @@ class LatexBuilder:
         ) as template_file:
             template = template_file.read()
 
-        style = get_style_by_name(self.style)
+        style = get_style_by_name(self.style_options.style)
         background_color = style.background_color
 
         if is_dark_colour(background_color):
@@ -53,11 +37,11 @@ class LatexBuilder:
         style_defs = self.formatter.get_style_defs()
 
         template_data = {
-            "FONT_SIZE": self.font_size,
-            "TOP_MARGIN": self.top_margin,
-            "BOTTOM_MARGIN": self.bottom_margin,
-            "RIGHT_MARGIN": self.right_margin,
-            "LEFT_MARGIN": self.left_margin,
+            "FONT_SIZE": self.style_options.font_size,
+            "TOP_MARGIN": self.style_options.top_margin,
+            "BOTTOM_MARGIN": self.style_options.bottom_margin,
+            "RIGHT_MARGIN": self.style_options.right_margin,
+            "LEFT_MARGIN": self.style_options.left_margin,
             "BACKGROUND_COLOR": background_color[1:],
             "FOREGROUND_COLOR": foreground_color[1:],
             "STYLE_DEFS": style_defs,
