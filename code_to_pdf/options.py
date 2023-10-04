@@ -3,6 +3,11 @@
 from dataclasses import dataclass
 
 
+short_aliases = {
+    'style': 's'
+}
+
+
 @dataclass
 class StyleOptions:
     """

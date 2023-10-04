@@ -5,7 +5,7 @@ from argparse import ArgumentParser
 
 import docstring_parser
 
-from code_to_pdf.options import StyleOptions
+from code_to_pdf.options import StyleOptions, short_aliases
 
 
 def parse_args():
@@ -20,8 +20,11 @@ def parse_args():
     argparser.add_argument('source_file', help="file to get source code from")
     argparser.add_argument('out_file', help="output PDF file")
     for field in fields(StyleOptions):
+        flags = [f'--{field.name.replace("_", "-")}']
+        if field.name in short_aliases:
+            flags.insert(0, f'-{short_aliases[field.name]}')
         argparser.add_argument(
-            f'--{field.name.replace("_", "-")}',
+            *flags,
             type=field.type,
             default=field.default,
             help=params[field.name]
