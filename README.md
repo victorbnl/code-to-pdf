@@ -23,14 +23,18 @@ pip install git+https://github.com/victorbnl/code-to-pdf
 ## Usage
 
 ```
-Usage: python -m code_to_pdf [OPTIONS] SOURCE_FILE OUTPUT_FILE
+Usage: code-to-pdf [OPTIONS] SOURCE_FILE OUTPUT_FILE
 
   Generate PDF documents from source code with syntax highlighting.
 
 Options:
-  -s, --style TEXT  pygments style (see https://pygments.org/styles/)
-  --font-size TEXT  document font size
-  --help            Show this message and exit.
+  -s, --style TEXT      pygments style (see https://pygments.org/styles/)
+  --font-size TEXT      document font size
+  --top-margin TEXT     document top margin
+  --bottom-margin TEXT  document bottom margin
+  --left-margin TEXT    document left margin
+  --right-margin TEXT   document right margin
+  --help                Show this message and exit.
 ```
 
 **Note:** See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
