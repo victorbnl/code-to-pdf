@@ -26,9 +26,12 @@ class StyleOptions(BaseModel):
     """
 
     style: PygmentsStyle = 'default'
+
     font_size: FontSize = '10pt'
+
     linenos: bool = False
     linenostep: int = 0
+
     top_margin: Margin = '0.4in'
     bottom_margin: Margin = '0.4in'
     left_margin: Margin = '0.5in'
