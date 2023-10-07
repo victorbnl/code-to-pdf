@@ -57,8 +57,8 @@ class LatexBuilder:
         return template
 
     def __build_latex_code(
-            self, source_code: str, filename: str | None = None
-        ) -> str:
+        self, source_code: str, filename: str | None = None
+    ) -> str:
         if filename is None:
             lexer = guess_lexer(source_code)
         else:
