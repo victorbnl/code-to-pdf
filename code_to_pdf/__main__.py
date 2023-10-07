@@ -1,7 +1,7 @@
 """Execute command-line interface."""
 
-from sys import exit
+import sys
 
 from code_to_pdf import cli
 
-exit(cli.main())
+sys.exit(cli.main())
