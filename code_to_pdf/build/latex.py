@@ -30,9 +30,9 @@ class LatexBuilder:
         background_color = style.background_color
 
         if is_dark_colour(background_color):
-            foreground_color = '#ff0000'
+            foreground_color = f"#{6*'b'}"
         else:
-            foreground_color = '#00ff00'
+            foreground_color = f"#{6*'5'}"
 
         style_defs = self.formatter.get_style_defs()
 
