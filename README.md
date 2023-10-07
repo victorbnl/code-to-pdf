@@ -45,10 +45,9 @@ Options:
 
 ```python
 >>> import code_to_pdf
->>> import code_to_pdf.options
 >>> source = "print('Hello world!')"
->>> options = code_to_pdf.options.StyleOptions()
->>> pdf_content = code_to_pdf.build(source, style_options=options)
+>>> options = code_to_pdf.Options()
+>>> pdf_content = code_to_pdf.build(source, options=options)
 >>> with open('output.pdf', 'wb') as output_file:
 ...     output_file.write(pdf_content)
 ```
