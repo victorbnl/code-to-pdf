@@ -8,7 +8,7 @@ from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
 
 from code_to_pdf.options import StyleOptions
-from code_to_pdf.utils.colour import is_dark_colour
+from code_to_pdf.utils import is_dark_colour
 
 
 class LatexBuilder:

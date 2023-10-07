@@ -1,4 +1,4 @@
-"""Utilities for working with colours."""
+"""Utility functions."""
 
 
 def is_dark_colour(colour: str) -> bool:

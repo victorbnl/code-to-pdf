@@ -2,7 +2,7 @@
 
 from pydantic import BaseModel
 
-from code_to_pdf.custom_types import FontSize, Margin, PygmentsStyle
+from code_to_pdf.options.custom_types import FontSize, Margin, PygmentsStyle
 
 short_aliases = {"style": "s"}
 

@@ -1,4 +1,4 @@
-"""Custom types to be used in Options for validation."""
+"""Custom types to be used in options for validation."""
 
 from typing import Annotated, Literal
 
