@@ -1,7 +1,6 @@
 """Convert source code to LaTeX."""
 
-from os import path
-
+from jinja2 import Environment, PackageLoader, select_autoescape
 from pygments import highlight
 from pygments.lexers import guess_lexer, guess_lexer_for_filename
 from pygments.formatters import LatexFormatter
@@ -16,52 +15,16 @@ class LatexBuilder:
 
     def __init__(self, options: Options) -> None:
         self.options = options
-        self.formatter = LatexFormatter(
-            style=options.style,
-            linenos=options.linenos,
-            linenostep=5,
-        )
 
         if self.options.page_numbers:
             bottom_margin = float(self.options.bottom_margin[:-2])
             self.options.bottom_margin = f"{bottom_margin + 0.5}in"
 
-    def __build_template(self) -> str:
-        with open(
-            path.join(path.dirname(__file__), 'templates', 'latex.tex'),
-            'r',
-            encoding='utf-8'
-        ) as template_file:
-            template = template_file.read()
-
-        style = get_style_by_name(self.options.style)
-        background_color = style.background_color
-
-        if is_dark_colour(background_color):
-            foreground_color = f"#{6*'b'}"
-        else:
-            foreground_color = f"#{6*'5'}"
-
-        style_defs = self.formatter.get_style_defs()
-
-        template_data = {
-            "FONT_SIZE": self.options.font_size,
-            "PAGE_NUMBERS": (
-                "" if self.options.page_numbers else "\\pagenumbering{gobble}"
-            ),
-            "TOP_MARGIN": self.options.top_margin,
-            "BOTTOM_MARGIN": self.options.bottom_margin,
-            "RIGHT_MARGIN": self.options.right_margin,
-            "LEFT_MARGIN": self.options.left_margin,
-            "BACKGROUND_COLOR": background_color[1:],
-            "FOREGROUND_COLOR": foreground_color[1:],
-            "STYLE_DEFS": style_defs,
-        }
-
-        for key, value in template_data.items():
-            template = template.replace(key, value)
-
-        return template
+        self.formatter = LatexFormatter(
+            style=options.style,
+            linenos=options.linenos,
+            linenostep=options.linenostep,
+        )
 
     def __build_latex_code(
         self, source_code: str, filename: str | None = None
@@ -75,12 +38,44 @@ class LatexBuilder:
 
         return latex_code
 
-    def build(self, source_code: str, filename: str | None = None) -> str:
+    def __build_template(self, latex_code: str) -> str:
+        style_defs = self.formatter.get_style_defs()
+
+        style = get_style_by_name(self.options.style)
+        background_color = style.background_color
+
+        if is_dark_colour(background_color):
+            foreground_color = f"#{6*'b'}"
+        else:
+            foreground_color = f"#{6*'5'}"
+
+        colors = {
+            "background": background_color[1:],
+            "foreground": foreground_color[1:],
+        }
+
+        env = Environment(
+            loader=PackageLoader("code_to_pdf.build"),
+            autoescape=select_autoescape(),
+            block_start_string="<%",
+            block_end_string="%>",
+            variable_start_string="<=",
+            variable_end_string="=>"
+        )
+        template = env.get_template("latex.tex.jinja")
+        result = template.render(
+            options=self.options,
+            colors=colors,
+            style_defs=style_defs,
+            content=latex_code
+        )
+
+        return result
+
+    def build(self, source_code: str, filename: str | None) -> str:
         """Return LaTeX from source code."""
 
-        template = self.__build_template()
         latex_code = self.__build_latex_code(source_code, filename)
+        template = self.__build_template(latex_code)
 
-        document = template.replace("CONTENT", latex_code)
-
-        return document
+        return template

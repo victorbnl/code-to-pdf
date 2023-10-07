@@ -1,0 +1,29 @@
+\documentclass[<= options.font_size =>]{article}
+
+\usepackage{fancyvrb}
+
+\usepackage[
+    top=<= options.top_margin =>,
+    bottom=<= options.bottom_margin =>,
+    right=<= options.right_margin =>,
+    left=<= options.left_margin =>
+]{geometry}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{background}{HTML}{<= colors["background"] =>}
+\definecolor{foreground}{HTML}{<= colors["foreground"] =>}
+
+\pagecolor{background}
+\makeatletter
+\AtBeginDocument{\color{foreground}\global\let\default@color\current@color}
+\makeatother
+
+<% if not options.page_numbers %>
+\pagenumbering{gobble}
+<% endif %>
+
+<= style_defs =>
+
+\begin{document}
+<= content =>
+\end{document}
