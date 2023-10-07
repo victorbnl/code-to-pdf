@@ -2,12 +2,9 @@
 
 from pydantic import BaseModel
 
-from code_to_pdf.custom_types import PygmentsStyle, FontSize, Margin
+from code_to_pdf.custom_types import FontSize, Margin, PygmentsStyle
 
-
-short_aliases = {
-    'style': 's'
-}
+short_aliases = {"style": "s"}
 
 
 class StyleOptions(BaseModel):
@@ -25,14 +22,14 @@ class StyleOptions(BaseModel):
         right_margin: document right margin
     """
 
-    style: PygmentsStyle = 'default'
+    style: PygmentsStyle = "default"
 
-    font_size: FontSize = '10pt'
+    font_size: FontSize = "10pt"
 
     linenos: bool = False
     linenostep: int = 0
 
-    top_margin: Margin = '0.4in'
-    bottom_margin: Margin = '0.4in'
-    left_margin: Margin = '0.5in'
-    right_margin: Margin = '0.5in'
+    top_margin: Margin = "0.4in"
+    bottom_margin: Margin = "0.4in"
+    left_margin: Margin = "0.5in"
+    right_margin: Margin = "0.5in"

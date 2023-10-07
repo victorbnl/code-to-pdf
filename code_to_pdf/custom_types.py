@@ -3,7 +3,6 @@
 from typing import Annotated, Literal
 
 from pydantic import AfterValidator, StringConstraints
-
 from pygments.styles import STYLE_MAP
 
 
@@ -15,5 +14,5 @@ def is_pygments_style(value: str) -> str:
 
 
 PygmentsStyle = Annotated[str, AfterValidator(is_pygments_style)]
-FontSize = Literal['10pt', '11pt', '12pt']
-Margin = Annotated[str, StringConstraints(pattern=r'^\d+(\.\d+)?in$')]
+FontSize = Literal["10pt", "11pt", "12pt"]
+Margin = Annotated[str, StringConstraints(pattern=r"^\d+(\.\d+)?in$")]

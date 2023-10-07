@@ -16,16 +16,12 @@ def parse_args():
     }
 
     argparser = ArgumentParser()
-    argparser.add_argument('source_file', help="file to get source code from")
-    argparser.add_argument('out_file', help="output PDF file")
+    argparser.add_argument("source_file", help="file to get source code from")
+    argparser.add_argument("out_file", help="output PDF file")
     for name, field in StyleOptions.__fields__.items():
         flags = [f'--{name.replace("_", "-")}']
         if name in short_aliases:
-            flags.insert(0, f'-{short_aliases[name]}')
-        argparser.add_argument(
-            *flags,
-            default=field.default,
-            help=params[name]
-        )
+            flags.insert(0, f"-{short_aliases[name]}")
+        argparser.add_argument(*flags, default=field.default, help=params[name])
 
     return argparser.parse_args()
