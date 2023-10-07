@@ -22,6 +22,10 @@ class LatexBuilder:
             linenostep=5,
         )
 
+        if self.options.page_numbers:
+            bottom_margin = float(self.options.bottom_margin[:-2])
+            self.options.bottom_margin = f"{bottom_margin + 0.5}in"
+
     def __build_template(self) -> str:
         with open(
             path.join(path.dirname(__file__), 'templates', 'latex.tex'),
@@ -42,6 +46,9 @@ class LatexBuilder:
 
         template_data = {
             "FONT_SIZE": self.options.font_size,
+            "PAGE_NUMBERS": (
+                "" if self.options.page_numbers else "\\pagenumbering{gobble}"
+            ),
             "TOP_MARGIN": self.options.top_margin,
             "BOTTOM_MARGIN": self.options.bottom_margin,
             "RIGHT_MARGIN": self.options.right_margin,

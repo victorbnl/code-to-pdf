@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Page numbers option
+
 ## 1.1.0
 
 ### Added

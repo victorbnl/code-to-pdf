@@ -16,6 +16,7 @@ class Options(BaseModel):
         font_size: document font size
         linenos: whether or not to display line numbers
         linenostep: if `linenos` is enabled, print every n-th line number
+        page_numbers: whether or not to print page numbers
         top_margin: document top margin
         bottom_margin: document bottom margin
         left_margin: document left margin
@@ -28,6 +29,8 @@ class Options(BaseModel):
 
     linenos: bool = False
     linenostep: int = 0
+
+    page_numbers: bool = False
 
     top_margin: Margin = "0.4in"
     bottom_margin: Margin = "0.4in"
