@@ -1,4 +1,4 @@
-"""Command-line interface for code-to-pdf."""
+"""Command-line interface."""
 
 from pydantic import ValidationError
 
