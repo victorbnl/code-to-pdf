@@ -22,6 +22,8 @@ pip install git+https://github.com/victorbnl/code-to-pdf
 
 ## Usage
 
+### As a command-line application
+
 ```
 Usage: code-to-pdf [OPTIONS] SOURCE_FILE OUTPUT_FILE
 
@@ -38,6 +40,18 @@ Options:
 ```
 
 **Note:** See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
+
+### As a module
+
+```python
+>>> import code_to_pdf
+>>> import code_to_pdf.options
+>>> source = "print('Hello world!')"
+>>> options = code_to_pdf.options.StyleOptions()
+>>> pdf_content = code_to_pdf.build(source, style_options=options)
+>>> with open('output.pdf', 'wb') as output_file:
+...     output_file.write(pdf_content)
+```
 
 ## Thanks to
 
