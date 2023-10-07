@@ -16,7 +16,9 @@ class LatexBuilder:
 
     def __init__(self, style_options: StyleOptions):
         self.style_options = style_options
-        self.formatter = LatexFormatter(style=style_options.style)
+        self.formatter = LatexFormatter(
+            style=style_options.style, linenos=style_options.linenos
+        )
 
     def __build_template(self):
         with open(
