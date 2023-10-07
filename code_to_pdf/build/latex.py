@@ -14,7 +14,7 @@ from code_to_pdf.utils.colour import is_dark_colour
 class LatexBuilder:
     """Builder for converting source code to LaTeX."""
 
-    def __init__(self, style_options: StyleOptions):
+    def __init__(self, style_options: StyleOptions) -> None:
         self.style_options = style_options
         self.formatter = LatexFormatter(
             style=style_options.style,
@@ -22,7 +22,7 @@ class LatexBuilder:
             linenostep=5,
         )
 
-    def __build_template(self):
+    def __build_template(self) -> str:
         with open(
             path.join(path.dirname(__file__), 'templates', 'latex.tex'),
             'r',
@@ -56,7 +56,9 @@ class LatexBuilder:
 
         return template
 
-    def __build_latex_code(self, source_code: str, filename: str | None = None):
+    def __build_latex_code(
+            self, source_code: str, filename: str | None = None
+        ) -> str:
         if filename is None:
             lexer = guess_lexer(source_code)
         else:
@@ -66,7 +68,7 @@ class LatexBuilder:
 
         return latex_code
 
-    def build(self, source_code: str, filename: str | None = None):
+    def build(self, source_code: str, filename: str | None = None) -> str:
         """Return LaTeX from source code."""
 
         template = self.__build_template()

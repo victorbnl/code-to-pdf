@@ -1,13 +1,13 @@
 """Parse command-line arguments."""
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 
 import docstring_parser
 
 from code_to_pdf.options import StyleOptions, short_aliases
 
 
-def parse_args():
+def parse_args() -> Namespace:
     """Parse arguments."""
 
     params = {

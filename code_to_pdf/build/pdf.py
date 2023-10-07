@@ -8,10 +8,10 @@ import subprocess
 class PdfBuilder:
     """Builder for converting LaTeX code to PDF file content."""
 
-    def __init__(self, *, pdflatex: str = 'pdflatex'):
+    def __init__(self, *, pdflatex: str = 'pdflatex') -> None:
         self.pdflatex = pdflatex
 
-    def build(self, latex_code: str):
+    def build(self, latex_code: str) -> bytes:
         """Return PDF file content from LaTeX code."""
 
         with tempfile.TemporaryDirectory() as tmpdir:
