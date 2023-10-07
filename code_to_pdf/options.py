@@ -1,6 +1,8 @@
 """Option data classes."""
 
-from dataclasses import dataclass
+from pydantic import BaseModel
+
+from code_to_pdf.custom_types import PygmentsStyle, FontSize, Margin
 
 
 short_aliases = {
@@ -8,8 +10,7 @@ short_aliases = {
 }
 
 
-@dataclass
-class StyleOptions:
+class StyleOptions(BaseModel):
     """
     Options related to document style.
 
@@ -22,9 +23,9 @@ class StyleOptions:
         right_margin: document right margin
     """
 
-    style: str = 'default'
-    font_size: str = '10pt'
-    top_margin: str = '0.4in'
-    bottom_margin: str = '0.4in'
-    left_margin: str = '0.5in'
-    right_margin: str = '0.5in'
+    style: PygmentsStyle = 'default'
+    font_size: FontSize = '10pt'
+    top_margin: Margin = '0.4in'
+    bottom_margin: Margin = '0.4in'
+    left_margin: Margin = '0.5in'
+    right_margin: Margin = '0.5in'

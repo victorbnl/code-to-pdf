@@ -1,6 +1,5 @@
 """Parse command-line arguments."""
 
-from dataclasses import fields
 from argparse import ArgumentParser
 
 import docstring_parser
@@ -19,15 +18,14 @@ def parse_args():
     argparser = ArgumentParser()
     argparser.add_argument('source_file', help="file to get source code from")
     argparser.add_argument('out_file', help="output PDF file")
-    for field in fields(StyleOptions):
-        flags = [f'--{field.name.replace("_", "-")}']
-        if field.name in short_aliases:
-            flags.insert(0, f'-{short_aliases[field.name]}')
+    for name, field in StyleOptions.__fields__.items():
+        flags = [f'--{name.replace("_", "-")}']
+        if name in short_aliases:
+            flags.insert(0, f'-{short_aliases[name]}')
         argparser.add_argument(
             *flags,
-            type=field.type,
             default=field.default,
-            help=params[field.name]
+            help=params[name]
         )
 
     return argparser.parse_args()

@@ -13,6 +13,7 @@ authors = [
 ]
 dependencies = [
     "docstring-parser>=0.15",
+    "pydantic>=2.4.0",
     "pygments>=2.16.0",
 ]
 
