@@ -9,7 +9,9 @@ from pygments.styles import STYLE_MAP
 def is_pygments_style(value: str) -> str:
     """Return whether `string` is a valid pygments style."""
 
-    assert value in STYLE_MAP, "Not a valid Pygments style"
+    assert (
+        value in STYLE_MAP
+    ), "Not a valid style (see https://pygments.org/styles/)"
     return value
 
 
