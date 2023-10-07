@@ -25,18 +25,31 @@ pip install git+https://github.com/victorbnl/code-to-pdf
 ### As a command-line application
 
 ```
-Usage: code-to-pdf [OPTIONS] SOURCE_FILE OUTPUT_FILE
+usage: code-to-pdf [-h] [-s STYLE] [--font-size FONT_SIZE] [--linenos LINENOS] [--linenostep LINENOSTEP] [--top-margin TOP_MARGIN]
+                   [--bottom-margin BOTTOM_MARGIN] [--left-margin LEFT_MARGIN] [--right-margin RIGHT_MARGIN]
+                   source_file out_file
 
-  Generate PDF documents from source code with syntax highlighting.
+positional arguments:
+  source_file           file to get source code from
+  out_file              output PDF file
 
-Options:
-  -s, --style TEXT      pygments style (see https://pygments.org/styles/)
-  --font-size TEXT      document font size
-  --top-margin TEXT     document top margin
-  --bottom-margin TEXT  document bottom margin
-  --left-margin TEXT    document left margin
-  --right-margin TEXT   document right margin
-  --help                Show this message and exit.
+options:
+  -h, --help            show this help message and exit
+  -s STYLE, --style STYLE
+                        pygments style (see https://pygments.org/styles/)
+  --font-size FONT_SIZE
+                        document font size
+  --linenos LINENOS     whether or not to display line numbers
+  --linenostep LINENOSTEP
+                        if `linenos` is enabled, print every n-th line number
+  --top-margin TOP_MARGIN
+                        document top margin
+  --bottom-margin BOTTOM_MARGIN
+                        document bottom margin
+  --left-margin LEFT_MARGIN
+                        document left margin
+  --right-margin RIGHT_MARGIN
+                        document right margin
 ```
 
 **Note:** See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
