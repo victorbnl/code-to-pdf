@@ -7,18 +7,18 @@ from pygments.lexers import guess_lexer, guess_lexer_for_filename
 from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
 
-from code_to_pdf.options import StyleOptions
+from code_to_pdf.options import Options
 from code_to_pdf.utils import is_dark_colour
 
 
 class LatexBuilder:
     """Builder for converting source code to LaTeX."""
 
-    def __init__(self, style_options: StyleOptions) -> None:
-        self.style_options = style_options
+    def __init__(self, options: Options) -> None:
+        self.options = options
         self.formatter = LatexFormatter(
-            style=style_options.style,
-            linenos=style_options.linenos,
+            style=options.style,
+            linenos=options.linenos,
             linenostep=5,
         )
 
@@ -30,7 +30,7 @@ class LatexBuilder:
         ) as template_file:
             template = template_file.read()
 
-        style = get_style_by_name(self.style_options.style)
+        style = get_style_by_name(self.options.style)
         background_color = style.background_color
 
         if is_dark_colour(background_color):
@@ -41,11 +41,11 @@ class LatexBuilder:
         style_defs = self.formatter.get_style_defs()
 
         template_data = {
-            "FONT_SIZE": self.style_options.font_size,
-            "TOP_MARGIN": self.style_options.top_margin,
-            "BOTTOM_MARGIN": self.style_options.bottom_margin,
-            "RIGHT_MARGIN": self.style_options.right_margin,
-            "LEFT_MARGIN": self.style_options.left_margin,
+            "FONT_SIZE": self.options.font_size,
+            "TOP_MARGIN": self.options.top_margin,
+            "BOTTOM_MARGIN": self.options.bottom_margin,
+            "RIGHT_MARGIN": self.options.right_margin,
+            "LEFT_MARGIN": self.options.left_margin,
             "BACKGROUND_COLOR": background_color[1:],
             "FOREGROUND_COLOR": foreground_color[1:],
             "STYLE_DEFS": style_defs,

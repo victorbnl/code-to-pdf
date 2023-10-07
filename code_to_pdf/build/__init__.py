@@ -2,18 +2,18 @@
 
 from code_to_pdf.build.latex import LatexBuilder
 from code_to_pdf.build.pdf import PdfBuilder
-from code_to_pdf.options import StyleOptions
+from code_to_pdf.options import Options
 
 
 def build(
     source_code: str,
     filename: str | None = None,
     *,
-    style_options: StyleOptions,
+    options: Options,
 ) -> bytes:
     """Return PDF file content from source code."""
 
-    latex_builder = LatexBuilder(style_options)
+    latex_builder = LatexBuilder(options)
     latex_code = latex_builder.build(source_code, filename)
 
     pdf_builder = PdfBuilder()

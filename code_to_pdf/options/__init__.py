@@ -7,9 +7,9 @@ from code_to_pdf.options.custom_types import FontSize, Margin, PygmentsStyle
 short_aliases = {"style": "s"}
 
 
-class StyleOptions(BaseModel):
+class Options(BaseModel):
     """
-    Options related to document style.
+    Options for document generation.
 
     Attributes:
         style: pygments style (see https://pygments.org/styles/)
