@@ -2,6 +2,7 @@
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 from pygments import highlight
+from pygments.lexer import Lexer, LexerMeta
 from pygments.lexers import guess_lexer, guess_lexer_for_filename
 from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
@@ -33,6 +34,7 @@ class LatexBuilder:
     def __build_latex_code(
         self, source_code: str, filename: str | None = None
     ) -> str:
+        lexer: Lexer | LexerMeta
         if filename is None:
             lexer = guess_lexer(source_code)
         else:
