@@ -1,0 +1,33 @@
+name: Type checking
+
+on:
+  - push
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install mypy
+        shell: bash
+        run: pip install mypy
+
+      - name: Install Pygments type stubs
+        shell: bash
+        run: pip install types-Pygments
+
+      - name: Install dependencies
+        shell: bash
+        run: pip install .
+
+      - name: Run mypy checks
+        shell: bash
+        run: mypy code_to_pdf
