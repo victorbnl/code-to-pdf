@@ -7,7 +7,7 @@ from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
 
 from code_to_pdf.options import Options
-from code_to_pdf.utils import is_dark_colour
+from code_to_pdf.utils import is_dark_color
 
 
 class LatexBuilder:
@@ -44,7 +44,7 @@ class LatexBuilder:
         style = get_style_by_name(self.options.style)
         background_color = style.background_color
 
-        if is_dark_colour(background_color):
+        if is_dark_color(background_color):
             foreground_color = f"#{6*'b'}"
         else:
             foreground_color = f"#{6*'5'}"
