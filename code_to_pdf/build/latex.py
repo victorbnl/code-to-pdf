@@ -2,9 +2,9 @@
 
 from jinja2 import Environment, PackageLoader, select_autoescape
 from pygments import highlight
+from pygments.formatters import LatexFormatter  # pylint: disable=no-name-in-module
 from pygments.lexer import Lexer, LexerMeta
 from pygments.lexers import guess_lexer, guess_lexer_for_filename
-from pygments.formatters import LatexFormatter
 from pygments.styles import get_style_by_name
 
 from code_to_pdf.options import Options
@@ -31,9 +31,7 @@ class LatexBuilder:
             linenostep=options.linenostep,
         )
 
-    def __build_latex_code(
-        self, source_code: str, filename: str | None = None
-    ) -> str:
+    def __build_latex_code(self, source_code: str, filename: str | None = None) -> str:
         lexer: Lexer | LexerMeta
         if filename is None:
             lexer = guess_lexer(source_code)
@@ -66,14 +64,14 @@ class LatexBuilder:
             block_start_string="<%",
             block_end_string="%>",
             variable_start_string="<=",
-            variable_end_string="=>"
+            variable_end_string="=>",
         )
         template = env.get_template("latex.tex.jinja")
         result = template.render(
             options=self.options,
             colors=colors,
             style_defs=style_defs,
-            content=latex_code
+            content=latex_code,
         )
 
         return result
