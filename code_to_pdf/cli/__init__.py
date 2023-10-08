@@ -27,9 +27,11 @@ def main() -> int:
         for error in exception.errors():
             print(f"{error['loc'][0]}: {error['input']}")
             if error["type"] == "assertion_error":
-                print("    " + str(error["ctx"]["error"]))
+                error_ctx = error.get("ctx", {})
+                error_message = str(error_ctx.get("error", "No error message"))
             else:
-                print("    " + error["msg"])
+                error_message = error["msg"]
+            print("    " + error_message)
         return 1
 
     with open(source_file, "r", encoding="utf-8") as file_:
