@@ -25,8 +25,8 @@ pip install git+https://github.com/victorbnl/code-to-pdf
 ### As a command-line application
 
 ```
-usage: code-to-pdf [-h] [-s STYLE] [--font-size FONT_SIZE] [--linenos LINENOS] [--linenostep LINENOSTEP] [--top-margin TOP_MARGIN]
-                   [--bottom-margin BOTTOM_MARGIN] [--left-margin LEFT_MARGIN] [--right-margin RIGHT_MARGIN]
+usage: code-to-pdf [-h] [-s STYLE] [--font-size FONT_SIZE] [--linenos LINENOS] [--linenostep LINENOSTEP] [--page-numbers PAGE_NUMBERS]
+                   [--top-margin TOP_MARGIN] [--bottom-margin BOTTOM_MARGIN] [--left-margin LEFT_MARGIN] [--right-margin RIGHT_MARGIN]
                    source_file out_file
 
 positional arguments:
@@ -42,6 +42,8 @@ options:
   --linenos LINENOS     whether or not to display line numbers
   --linenostep LINENOSTEP
                         if `linenos` is enabled, print every n-th line number
+  --page-numbers PAGE_NUMBERS
+                        whether or not to print page numbers
   --top-margin TOP_MARGIN
                         document top margin
   --bottom-margin BOTTOM_MARGIN
