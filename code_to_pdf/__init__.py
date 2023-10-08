@@ -2,3 +2,8 @@
 
 from code_to_pdf.build import build
 from code_to_pdf.options import Options
+
+__all__ = [
+    "build",
+    "Options",
+]
