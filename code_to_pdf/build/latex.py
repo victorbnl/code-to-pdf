@@ -20,6 +20,10 @@ class LatexBuilder:
             bottom_margin = float(self.options.bottom_margin[:-2])
             self.options.bottom_margin = f"{bottom_margin + 0.5}in"
 
+        if self.options.linenos:
+            left_margin = float(self.options.left_margin[:-2])
+            self.options.left_margin = f"{left_margin + 0.3}in"
+
         self.formatter = LatexFormatter(
             style=options.style,
             linenos=options.linenos,

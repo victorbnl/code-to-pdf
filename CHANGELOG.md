@@ -5,6 +5,7 @@
 ### Added
 
 - Page numbers option
+- More left margin if line numbers are enabled
 
 ## 1.1.0
 
