@@ -17,7 +17,7 @@ def main() -> int:
 
     style_args = {}
     for name, value in vars(args).items():
-        if name in Options.__fields__:
+        if name in Options().model_dump():
             style_args[name] = value
 
     try:
