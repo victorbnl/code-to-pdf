@@ -54,7 +54,8 @@ options:
                         document right margin
 ```
 
-**Note:** See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
+> **Note**<br>
+> See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
 
 ### As a module
 
@@ -67,7 +68,8 @@ options:
 ...     output_file.write(pdf_content)
 ```
 
-**Note:** See [option definitions](https://github.com/victorbnl/code-to-pdf/blob/main/code_to_pdf/options/__init__.py) or [usage](#as-a-command-line-application) for a list of options (for the latter: replace `-` by `_`, short forms such as `s` for `style` are not accepted).
+> **Note**<br>
+> See [option definitions](https://github.com/victorbnl/code-to-pdf/blob/main/code_to_pdf/options/__init__.py) or [usage](#as-a-command-line-application) for a list of options (for the latter: replace `-` by `_`, short forms such as `s` for `style` are not accepted).
 
 ## Thanks to
 
