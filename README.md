@@ -8,7 +8,9 @@
 
 ## Motivation
 
-I created this project because my school teacher preferred to get our homework as PDF files rather than source files. So I figured I’d automate it to save myself from copying the code in LibreOffice Writer for each homework.
+I created this project because my school teacher preferred to get our homework
+as PDF files rather than source files. So I figured I’d automate it to save
+myself from copying the code in LibreOffice Writer for each homework.
 
 ## Requirements
 
@@ -55,7 +57,8 @@ options:
 ```
 
 > **Note**<br>
-> See [Pygments’ documentation](https://pygments.org/styles/) for a list of available styles.
+> See [Pygments’ documentation](https://pygments.org/styles/) for a list of
+> available styles.
 
 ### As a module
 
@@ -69,8 +72,11 @@ options:
 ```
 
 > **Note**<br>
-> See [option definitions](https://github.com/victorbnl/code-to-pdf/blob/main/code_to_pdf/options/__init__.py) or [usage](#as-a-command-line-application) for a list of options.<br>
-> If refering to usage, remove trailing `--` and replace `-` by `_`. Short forms such as `s` for `style` are not accepted.
+> See
+> [option definitions](https://github.com/victorbnl/code-to-pdf/blob/main/code_to_pdf/options/__init__.py)
+> or [usage](#as-a-command-line-application) for a list of options.<br>
+> If refering to usage, remove trailing `--` and replace `-` by `_`. Short forms
+> such as `s` for `style` are not accepted.
 
 ## Thanks to
 
