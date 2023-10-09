@@ -67,6 +67,8 @@ options:
 ...     output_file.write(pdf_content)
 ```
 
+**Note:** See [option definitions](https://github.com/victorbnl/code-to-pdf/blob/main/code_to_pdf/options/__init__.py) or [usage](#as-a-command-line-application) for a list of options (for the latter: replace `-` by `_`, short forms such as `s` for `style` are not accepted).
+
 ## Thanks to
 
 - [Pygments](https://pygments.org/), which this project highly relies upon
