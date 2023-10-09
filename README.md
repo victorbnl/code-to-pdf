@@ -72,11 +72,8 @@ options:
 ```
 
 > **Note**<br>
-> See
-> [option definitions](https://github.com/victorbnl/code-to-pdf/blob/main/code_to_pdf/options/__init__.py)
-> or [usage](#as-a-command-line-application) for a list of options.<br>
-> If refering to usage, remove trailing `--` and replace `-` by `_`. Short forms
-> such as `s` for `style` are not accepted.
+> See [Options](https://victorbnl.github.io/code-to-pdf/options.html) for a list
+> of options.
 
 ## Thanks to
 
