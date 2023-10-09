@@ -1,4 +1,4 @@
-# Code to PDF
+# Code-to-PDF
 
 [![](https://img.shields.io/badge/v1.2.0-_?label=documentation)](https://victorbnl.github.io/code-to-pdf/)
 
