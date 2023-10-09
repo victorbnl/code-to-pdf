@@ -12,15 +12,15 @@ class Options(BaseModel):
     Options for document generation.
 
     Attributes:
-        style: pygments style (see https://pygments.org/styles/)
-        font_size: document font size
-        linenos: whether or not to display line numbers
-        linenostep: if `linenos` is enabled, print every n-th line number
-        page_numbers: whether or not to print page numbers
-        top_margin: document top margin
-        bottom_margin: document bottom margin
-        left_margin: document left margin
-        right_margin: document right margin
+        style: Pygments style (see https://pygments.org/styles/).
+        font_size: Document font size.
+        linenos: Whether or not to display line numbers.
+        linenostep: If `linenos` is enabled, print every n-th line number.
+        page_numbers: Whether or not to print page numbers.
+        top_margin: Document top margin.
+        bottom_margin: Document bottom margin.
+        left_margin: Document left margin.
+        right_margin: Document right margin.
     """
 
     style: PygmentsStyle = "default"

@@ -7,12 +7,28 @@ import docstring_parser
 from code_to_pdf.options import Options, short_aliases
 
 
+def format_help(help_text: str) -> str:
+    """Format `help_text` for command-line interface help."""
+
+    help_text = help_text.split(".")[0]
+
+    if len(help_text) != 0:
+        if len(help_text) == 1:
+            help_text = help_text.lower()
+        else:
+            help_text = help_text[0].lower() + help_text[1:]
+
+        help_text = help_text.rstrip(".")
+
+    return help_text
+
+
 def parse_args() -> Namespace:
     """Parse arguments."""
 
     if Options.__doc__:
         params = {
-            param.arg_name: param.description
+            param.arg_name: param.description or ""
             for param in docstring_parser.parse(Options.__doc__).params
         }
     else:
@@ -26,7 +42,7 @@ def parse_args() -> Namespace:
         if name in short_aliases:
             flags.insert(0, f"-{short_aliases[name]}")
         argparser.add_argument(
-            *flags, default=default, help=params.get(name, "")
+            *flags, default=default, help=format_help(params.get(name, ""))
         )
 
     return argparser.parse_args()
