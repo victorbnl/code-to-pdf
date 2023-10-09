@@ -3,7 +3,7 @@
 > Generate PDF documents from source code with syntax highlighting.
 
 <p align="center">
-    <img src=".readme/screenshot.png">
+    <img src="docs/_static/screenshot.png">
 </p>
 
 ## Motivation
