@@ -10,8 +10,6 @@ from code_to_pdf.options import Options, short_aliases
 def format_help(help_text: str) -> str:
     """Format `help_text` for command-line interface help."""
 
-    help_text = help_text.split(".")[0]
-
     if len(help_text) != 0:
         if len(help_text) == 1:
             help_text = help_text.lower()
