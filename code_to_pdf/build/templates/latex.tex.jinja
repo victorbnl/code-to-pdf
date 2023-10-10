@@ -2,13 +2,26 @@
 
 \usepackage{fancyvrb}
 
-\usepackage[
-    paper=<= options.paper =>,
+\usepackage{geometry}
+
+\geometry{
     top=<= options.top_margin =>,
     bottom=<= options.bottom_margin =>,
     right=<= options.right_margin =>,
     left=<= options.left_margin =>
-]{geometry}
+}
+
+<% if options.paper %>
+\geometry{paper=<= options.paper =>}
+<% endif %>
+
+<% if options.paper_width %>
+\geometry{paperwidth=<= options.paper_width =>}
+<% endif %>
+
+<% if options.paper_height %>
+\geometry{paperheight=<= options.paper_height =>}
+<% endif %>
 
 \usepackage[dvipsnames]{xcolor}
 \definecolor{background}{HTML}{<= colors["background"] =>}

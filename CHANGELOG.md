@@ -4,7 +4,7 @@
 
 ### Added
 
-- Paper format option
+- Paper format, width and height options
 
 ## 1.2.0
 

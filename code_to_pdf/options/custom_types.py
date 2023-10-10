@@ -15,9 +15,10 @@ def is_pygments_style(value: str) -> str:
     return value
 
 
+Size = Annotated[str, StringConstraints(pattern=r"^\d+(\.\d+)?(in|cm)$")]
+
 PygmentsStyle = Annotated[str, AfterValidator(is_pygments_style)]
 FontSize = Literal["10pt", "11pt", "12pt"]
-Margin = Annotated[str, StringConstraints(pattern=r"^\d+(\.\d+)?in$")]
 Paper = Annotated[
     str,
     StringConstraints(
