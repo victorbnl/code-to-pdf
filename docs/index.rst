@@ -1,6 +1,3 @@
-Code-to-PDF
-===========
-
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -9,6 +6,4 @@ Code-to-PDF
    build
    options
 
-Generate PDF documents from source code with syntax highlighting.
-
-.. image:: _static/screenshot.png
+.. include:: ../README.rst
