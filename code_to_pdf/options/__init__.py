@@ -3,7 +3,7 @@
 from pydantic import BaseModel
 
 from code_to_pdf.options.custom_types import (
-    FontSize, Margin, PaperSize, PygmentsStyle
+    FontSize, Margin, Paper, PygmentsStyle
 )
 
 short_aliases = {"style": "s"}
@@ -19,7 +19,7 @@ class Options(BaseModel):
         linenos: Whether or not to display line numbers.
         linenostep: If `linenos` is enabled, print every n-th line number.
         page_numbers: Whether or not to print page numbers.
-        paper_size: Paper size of resulting document.
+        paper: Paper format of resulting document.
         top_margin: Document top margin.
         bottom_margin: Document bottom margin.
         left_margin: Document left margin.
@@ -35,7 +35,7 @@ class Options(BaseModel):
 
     page_numbers: bool = False
 
-    paper_size: PaperSize = "a4paper"
+    paper: Paper = "a4paper"
 
     top_margin: Margin = "0.4in"
     bottom_margin: Margin = "0.4in"
