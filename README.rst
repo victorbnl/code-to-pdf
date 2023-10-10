@@ -38,7 +38,8 @@ As a command-line application
 .. code-block::
 
     usage: code-to-pdf [-h] [-s STYLE] [--font-size FONT_SIZE] [--linenos LINENOS] [--linenostep LINENOSTEP] [--page-numbers PAGE_NUMBERS]
-                       [--top-margin TOP_MARGIN] [--bottom-margin BOTTOM_MARGIN] [--left-margin LEFT_MARGIN] [--right-margin RIGHT_MARGIN]
+                       [--paper-size PAPER_SIZE] [--top-margin TOP_MARGIN] [--bottom-margin BOTTOM_MARGIN] [--left-margin LEFT_MARGIN]
+                       [--right-margin RIGHT_MARGIN]
                        source_file out_file
 
     positional arguments:
@@ -56,6 +57,8 @@ As a command-line application
                             if `linenos` is enabled, print every n-th line number
       --page-numbers PAGE_NUMBERS
                             whether or not to print page numbers
+      --paper-size PAPER_SIZE
+                            page format of resulting document
       --top-margin TOP_MARGIN
                             document top margin
       --bottom-margin BOTTOM_MARGIN

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+- Paper size option
+
 ## 1.2.0
 
 ### Added
