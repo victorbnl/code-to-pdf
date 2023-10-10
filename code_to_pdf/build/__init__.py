@@ -12,12 +12,15 @@ def build(
     options: Options,
 ) -> bytes:
     """
-    Return PDF file content from source code.
+    Build PDF with `source_code`.
 
     Args:
         source_code: Code to build the PDF from.
         filename: Source file name (used for Pygments lexer lookup, optional).
         options: Document generation options.
+
+    Return:
+        Byte array with the contents of the generated PDF file.
     """
 
     latex_builder = LatexBuilder(options)
