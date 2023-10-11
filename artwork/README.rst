@@ -5,7 +5,7 @@ Examples to be used in artwork.
 
 The artwork project itself is not in this
 repository, but `available on Figma`_. Here is the current workflow I use for
-editing the it:
+editing it:
 
 #. Generate all documents with ``build.sh``
 #. Convert them to images with GIMP (600px/in resolution)
