@@ -17,5 +17,9 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # Options for HTML output
 
-html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+html_theme = "sphinx_rtd_theme"
+html_logo = "_static/header.svg"
+html_theme_options = {
+    "logo_only": True,
+}
