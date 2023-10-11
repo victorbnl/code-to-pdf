@@ -1,3 +1,4 @@
 __pycache__/
 *.pdf
 docs/_build/
+artwork/outputs
