@@ -8,7 +8,7 @@ Code-to-PDF
 Generate PDF documents from source code with syntax highlighting.
 
 .. image::
-    https://github.com/victorbnl/code-to-pdf/blob/main/docs/_static/screenshot.png?raw=true
+    https://github.com/victorbnl/code-to-pdf/blob/main/docs/_static/artwork.png?raw=true
 
 Motivation
 ----------
