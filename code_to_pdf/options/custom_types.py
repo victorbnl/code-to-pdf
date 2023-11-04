@@ -3,14 +3,14 @@
 from typing import Annotated, Literal
 
 from pydantic import AfterValidator, StringConstraints
-from pygments.styles import STYLE_MAP
+from pygments.styles import get_all_styles
 
 
 def is_pygments_style(value: str) -> str:
     """Return whether `string` is a valid pygments style."""
 
     assert (
-        value in STYLE_MAP
+        value in get_all_styles()
     ), "Not a valid style (see https://pygments.org/styles/)"
     return value
 
