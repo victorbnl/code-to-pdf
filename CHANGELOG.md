@@ -6,6 +6,10 @@
 
 - Paper format, width and height options
 
+### Fixed
+
+- External pygments styles
+
 ## 1.2.0
 
 ### Added
