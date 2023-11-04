@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 1.2.1
+
 ### Added
 
 - Paper format, width and height options

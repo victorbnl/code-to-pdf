@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "code_to_pdf"
-version = "1.2.0"
+version = "1.2.1"
 description = "Generate PDF documents from source code with syntax highlighting."
 license = "MIT"
 requires-python = ">=3.10"
